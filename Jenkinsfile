@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo docker pull dminds-shopizer:1.0'
+                sh 'docker pull moshaye/dminds-shopizer:1.0'
             }
         }
     }
