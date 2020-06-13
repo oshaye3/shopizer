@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'dminds-shopizer'
+            image 'dminds-shopizer:1.0'
             args '-v $HOME/.m2:/root/.m2'
         }
     }
