@@ -35,7 +35,6 @@ node() {
         withCredentials([usernamePassword(credentialsId: 'docker_hub_creds', 
             passwordVariable: 'DOCKER_REGISTRY_PWD', 
             usernameVariable: 'DOCKER_REGISTRY_USER')]) {
-            wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']){
                 dir("./shopizer/sm-shop"){
                     sh """
                         docker build -t moshaye/dminds-shopizer:v0."$BUILD_NUMBER" .
@@ -46,5 +45,5 @@ node() {
             }
         }
     }
-}
+
 
