@@ -24,18 +24,7 @@ node() {
     
     }
 
-    stage('Build App') {
-        echo "${seperator60}\n${seperator20} View Artifacts \n${seperator60}"
-        wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']){
-            dir("./shopizer"){
-                sh """
-                   ./mvnw clean install
-                   ls -lart ./sm-shop/target 
-                """
-            } 
-        }
-    }
-
+    
     stage("Build Image") {
         echo "${seperator60}\n${seperator20} Check Point \n${seperator60}"
         input 'Ready to build image ?'
