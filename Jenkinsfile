@@ -37,7 +37,9 @@ node() {
             usernameVariable: 'DOCKER_REGISTRY_USER')]) {
                 dir("./shopizer/sm-shop"){
                     sh """
-                        docker build -t moshaye/dminds-shopizer .
+			echo "Befor building"
+                        docker build -t moshaye/dminds-shopizer:v0."$BUILD_NUMBER" .
+			echo "After build"
                         docker login -u ${env.DOCKER_REGISTRY_USER} -p ${env.DOCKER_REGISTRY_PWD}
                         docker push moshaye/dminds-shopizer:v0."$BUILD_NUMBER"
                     """
