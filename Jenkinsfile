@@ -30,6 +30,13 @@ node() {
         input 'Ready to build image ?'
     }
 
+    stage('Test Repo'){
+	sh """
+	  ls -lart 
+	  pwd
+	""" 
+    }
+
     stage('Push Image') {
         echo "${seperator60}\n${seperator20} Build Login And Push Image\n${seperator60}"
         withCredentials([usernamePassword(credentialsId: 'docker_hub_creds', 
