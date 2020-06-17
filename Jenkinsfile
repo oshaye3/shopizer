@@ -37,6 +37,7 @@ node() {
             usernameVariable: 'DOCKER_REGISTRY_USER')]) {
                 dir("./shopizer/sm-shop"){
                     sh """
+			ls -lart 
 			echo "Befor building"
                         docker build -t moshaye/dminds-shopizer:v0."$BUILD_NUMBER" .
 			echo "After build"
